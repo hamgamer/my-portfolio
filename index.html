@@ -3,64 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hamzah's professional portfolio featuring hospitality, video editing and graphic design.">
-<title>Hamzah | Professional Portfolio</title>
-/* =====================================
-   PREMIUM LUXURY PORTFOLIO THEME
-   ===================================== */
 
+<meta name="description" content="Hamzah's professional portfolio featuring video editing, creative projects, professional experience and contact information.">
+
+<title>Hamzah | Creative Portfolio</title>
+
+<style>
 :root {
-  --ink: #171717;
-  --muted: #777777;
+  --black: #111111;
+  --dark: #191919;
   --green: #176b4d;
-  --pale: #f4f4f4;
-  --line: #dedede;
+  --light-green: #dcebe1;
   --white: #ffffff;
+  --gray: #777777;
+  --light: #f5f5f3;
+  --border: #e4e4e1;
 }
 
-/* Smooth overall experience */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: #ffffff;
-  color: #171717;
-  transition: background 0.4s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.7;
 }
 
-/* Navigation */
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+/* NAVIGATION */
 
 header {
-  background: rgba(255, 255, 255, 0.94);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.96);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
 }
 
 .brand {
-  transition: color 0.3s ease;
-  letter-spacing: -0.5px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-decoration: none;
 }
 
-.brand:hover {
+.brand span {
   color: var(--green);
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .navlinks a {
   position: relative;
-  transition: color 0.3s ease;
+  font-size: .94rem;
+  text-decoration: none;
+  transition: color .3s ease;
 }
 
 .navlinks a::after {
   content: "";
   position: absolute;
-  bottom: -6px;
   left: 0;
-  width: 0;
+  bottom: -5px;
   height: 2px;
+  width: 0;
   background: var(--green);
-  transition: width 0.3s ease;
+  transition: width .3s ease;
 }
 
 .navlinks a:hover {
@@ -71,646 +114,549 @@ header {
   width: 100%;
 }
 
-/* Premium hero section */
+/* HERO */
 
 .hero {
   background: linear-gradient(
-    135deg,
-    #f8f8f8 0%,
+    125deg,
+    #f4f5f2 0%,
     #ffffff 55%,
-    #eeeeee 100%
+    #e9f0eb 100%
   );
-  position: relative;
-  overflow: hidden;
+  padding: 105px 0 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr .7fr;
+  gap: 70px;
+  align-items: center;
 }
 
 .eyebrow {
+  color: var(--green);
+  font-size: .8rem;
+  font-weight: 800;
   letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
 }
 
 h1 {
-  letter-spacing: -2px;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+
+h1 span {
+  color: var(--green);
+}
+
+.lead {
+  color: #555555;
+  font-size: 1.08rem;
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 23px;
+  border: 1px solid var(--black);
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 700;
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.13);
+}
+
+.btn-primary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.btn-secondary {
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
 .portrait {
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease;
+  min-height: 320px;
+  background: linear-gradient(145deg, #1b1b1b, #176b4d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 6rem;
+  font-weight: 800;
+  border-radius: 3px;
+  box-shadow: 18px 18px 0 #dce7de;
+  transition: transform .4s ease, box-shadow .4s ease;
 }
 
 .portrait:hover {
   transform: translateY(-7px);
-  box-shadow: 22px 22px 0 #d6e5dc;
+  box-shadow: 24px 24px 0 #c9ddcf;
 }
 
-/* Premium buttons */
+/* GENERAL SECTIONS */
 
-.btn {
-  position: relative;
-  overflow: hidden;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+section {
+  padding: 85px 0;
+  scroll-margin-top: 75px;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+.section-label {
+  color: var(--green);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.btn.primary:hover {
-  background: #111111;
-  border-color: #111111;
-  color: #ffffff;
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -1.3px;
+  line-height: 1.15;
+  margin-bottom: 22px;
 }
 
-.btn.secondary:hover {
-  background: #171717;
-  color: #ffffff;
-  border-color: #171717;
+.section-intro {
+  max-width: 720px;
+  color: #666666;
+  margin-bottom: 35px;
 }
 
-/* Elegant content cards */
+.about-text {
+  max-width: 850px;
+  color: #555555;
+  font-size: 1.05rem;
+}
+
+/* CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
 .card {
+  padding: 27px;
+  background: #ffffff;
+  border: 1px solid var(--border);
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-  border-color: #b9cfc1;
+  transform: translateY(-7px);
+  border-color: #b9d0c0;
+  box-shadow: 0 18px 38px rgba(0,0,0,.08);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666666;
+  font-size: .95rem;
+}
+
+/* SKILLS */
+
+.skills-section {
+  background: var(--light);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .tag {
+  display: inline-block;
+  padding: 10px 17px;
+  background: white;
+  border: 1px solid var(--border);
+  font-size: .92rem;
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
 }
 
 .tag:hover {
-  background: #171717;
-  color: #ffffff;
-  transform: translateY(-2px);
+  background: var(--green);
+  color: white;
+  transform: translateY(-3px);
 }
 
-/* Work experience */
+/* EXPERIENCE */
 
 .job {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  border-left: 3px solid var(--green);
+  padding: 8px 0 8px 25px;
+  margin-bottom: 30px;
+  transition: transform .3s ease;
 }
 
 .job:hover {
-  transform: translateX(5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transform: translateX(6px);
 }
 
-/* Video thumbnails */
+.job h3 {
+  font-size: 1.2rem;
+}
+
+.job .meta {
+  color: var(--green);
+  font-size: .9rem;
+  font-weight: 700;
+  margin: 5px 0 10px;
+}
+
+.job p {
+  color: #666666;
+}
+
+/* EDUCATION */
+
+.education-section {
+  background: var(--light);
+}
+
+/* CREATIVE WORK */
+
+.creative-section {
+  background: #ffffff;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
 
 .work-card {
+  border: 1px solid var(--border);
+  background: white;
+  overflow: hidden;
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    transform .4s ease,
+    box-shadow .4s ease,
+    border-color .4s ease;
 }
 
 .work-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.13);
-  border-color: #c6d9cc;
+  border-color: #a9c8b5;
+  box-shadow: 0 22px 45px rgba(0,0,0,.12);
 }
 
 .thumb-link {
-  background: #171717;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #202020;
 }
 
 .thumb {
-  transition:
-    transform 0.55s ease,
-    filter 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease, filter .4s ease;
 }
 
 .work-card:hover .thumb {
-  transform: scale(1.08);
-  filter: brightness(0.82);
+  transform: scale(1.07);
+  filter: brightness(.72);
 }
 
-.thumb-link::after {
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  color: var(--black);
+  font-size: 1.25rem;
+  box-shadow: 0 4px 25px rgba(0,0,0,.2);
+  transition: background .3s ease, color .3s ease, transform .3s ease;
 }
 
-.work-card:hover .thumb-link::after {
-  transform: translate(-50%, -50%) scale(1.12);
+.work-card:hover .play {
   background: var(--green);
-  box-shadow: 0 0 25px rgba(23, 107, 77, 0.5);
+  color: white;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.work-content {
+  padding: 23px;
+}
+
+.work-content h3 {
+  font-size: 1.08rem;
+  margin-bottom: 9px;
+}
+
+.work-content p {
+  color: #666666;
+  font-size: .92rem;
+  margin-bottom: 17px;
 }
 
 .work-link {
   display: inline-block;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+  color: var(--green);
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .3s ease, color .3s ease;
 }
 
 .work-link:hover {
-  color: #111111;
+  color: var(--black);
   transform: translateX(4px);
 }
 
-/* Premium green contact section */
+.channel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.channel-btn {
+  display: inline-block;
+  padding: 12px 17px;
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: white;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 700;
+  transition: all .3s ease;
+}
+
+.channel-btn:hover {
+  background: var(--green);
+  border-color: var(--green);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.13);
+}
+
+/* CONTACT */
+
+.contact-section {
+  padding-top: 65px;
+  padding-bottom: 85px;
+  background: #f5f5f3;
+}
 
 .contact-box {
-  background: linear-gradient(
-    125deg,
-    #111111 0%,
-    #202820 55%,
-    #176b4d 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-  position: relative;
-  overflow: hidden;
+  padding: 55px;
+  background: linear-gradient(125deg, #111111 0%, #202820 55%, #176b4d 100%);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 20px 45px rgba(0,0,0,.12);
+}
+
+.contact-box .section-label {
+  color: #a9d9bb;
 }
 
 .contact-box h2 {
-  letter-spacing: -0.5px;
+  color: white;
 }
 
-.contact-box a {
-  transition:
-    color 0.3s ease,
-    opacity 0.3s ease;
+.contact-box .section-intro {
+  color: #e0e0e0;
 }
 
-.contact-box a:hover {
-  color: #c6ead4;
+.contact-email {
+  display: inline-block;
+  margin: 0 0 25px;
+  color: white;
+  font-size: 1.08rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
-/* Social buttons */
+.contact-email:hover {
+  color: #b8e4c6;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
 
 .social-grid a {
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  display: block;
+  padding: 13px 15px;
+  border: 1px solid rgba(255,255,255,.4);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 700;
+  transition: all .3s ease;
 }
 
 .social-grid a:hover {
-  background: #ffffff;
-  color: #171717;
-  border-color: #ffffff;
+  background: white;
+  color: var(--black);
+  border-color: white;
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
-/* Subtle section transitions */
-
-section {
-  scroll-margin-top: 80px;
+.phone-note {
+  margin-top: 22px;
+  color: #e0e0e0;
+  font-size: .94rem;
 }
 
-::selection {
-  background: #176b4d;
-  color: #ffffff;
+.phone-note a {
+  color: white;
+  text-decoration: none;
 }
 
-/* Keyboard accessibility */
+.phone-note a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 0;
+  background: #111111;
+  color: #dddddd;
+  text-align: center;
+  font-size: .88rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .portrait {
+    min-height: 230px;
+  }
+
+  .cards,
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-box {
+    padding: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 14px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .navlinks {
+    gap: 12px 18px;
+  }
+
+  .hero {
+    padding: 65px 0;
+  }
+
+  h1 {
+    letter-spacing: -1.5px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .cards,
+  .work-grid,
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-box {
+    padding: 27px 22px;
+  }
+
+  .btn {
+    padding: 12px 16px;
+  }
+}
+
+/* ACCESSIBILITY */
 
 a:focus-visible {
-  outline: 3px solid #70b894;
+  outline: 3px solid #76bd91;
   outline-offset: 4px;
 }
 
-/* Respect reduced-motion preferences */
+::selection {
+  background: var(--green);
+  color: white;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-<style>
-:root {
-  --ink:#17211d;
-  --muted:#5b6b63;
-  --green:#176b4d;
-  --pale:#eef6f0;
-  --line:#dce7df;
-  --white:#fff;
-}
-
-* { box-sizing:border-box; }
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
-}
-
-body {
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
-  background:#f8fbf8;
-  line-height:1.6;
-}
-
-a { color:var(--green); }
-
-.wrap {
-  width:min(1080px,92%);
-  margin:auto;
-}
-
-header {
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:5;
-}
-
-nav {
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.brand {
-  font-weight:800;
-  font-size:1.25rem;
-  color:var(--ink);
-  text-decoration:none;
-}
-
-.brand span { color:var(--green); }
-
-.navlinks {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.navlinks a {
-  text-decoration:none;
-  font-size:.95rem;
-  color:var(--ink);
-}
-
-.navlinks a:hover { color:var(--green); }
-
-.hero {
-  padding:78px 0 66px;
-  background:linear-gradient(135deg,#eef6f0,#f8fbf8 70%);
-}
-
-.hero-grid {
-  display:grid;
-  grid-template-columns:1.5fr .8fr;
-  gap:44px;
-  align-items:center;
-}
-
-.eyebrow {
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  color:var(--green);
-  font-size:.8rem;
-  font-weight:700;
-}
-
-h1 {
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  line-height:1.05;
-  margin:.3em 0;
-  letter-spacing:-.04em;
-}
-
-h2 {
-  font-size:clamp(1.7rem,3vw,2.1rem);
-  line-height:1.2;
-  margin:0 0 16px;
-}
-
-.lead {
-  color:var(--muted);
-  font-size:1.15rem;
-  max-width:650px;
-}
-
-.buttons {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:26px;
-}
-
-.btn {
-  display:inline-block;
-  border-radius:9px;
-  padding:12px 18px;
-  text-decoration:none;
-  font-weight:700;
-  border:1px solid var(--green);
-}
-
-.primary {
-  background:var(--green);
-  color:#fff;
-}
-
-.secondary {
-  color:var(--green);
-  background:transparent;
-}
-
-.portrait {
-  width:min(280px,100%);
-  aspect-ratio:1;
-  margin:auto;
-  border-radius:28px;
-  background:var(--green);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-size:5rem;
-  font-weight:800;
-  box-shadow:18px 18px 0 #d4e8da;
-  overflow:hidden;
-}
-
-section { padding:66px 0; }
-
-.section-intro {
-  color:var(--muted);
-  max-width:700px;
-  margin-top:-5px;
-  margin-bottom:28px;
-}
-
-.cards {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-
-.card {
-  padding:24px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-}
-
-.card h3 { margin:0 0 8px; }
-
-.card p {
-  margin:8px 0;
-  color:var(--muted);
-}
-
-.taglist {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-}
-
-.tag {
-  background:var(--pale);
-  border:1px solid var(--line);
-  color:var(--green);
-  border-radius:999px;
-  padding:7px 12px;
-  font-size:.92rem;
-}
-
-.soft { background:#eef6f0; }
-
-.timeline {
-  display:grid;
-  gap:16px;
-}
-
-.job {
-  background:#fff;
-  border:1px solid var(--line);
-  border-left:4px solid var(--green);
-  border-radius:12px;
-  padding:20px 22px;
-}
-
-.job h3 { margin:0; }
-
-.date {
-  color:var(--green);
-  font-weight:700;
-  font-size:.92rem;
-}
-
-.job p {
-  color:var(--muted);
-  margin-bottom:0;
-}
-
-/* Creative work cards */
-.work-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
-  margin-top:28px;
-}
-
-.work-card {
-  min-width:0;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 6px 22px rgba(23,33,29,.05);
-  transition:transform .18s ease,box-shadow .18s ease;
-}
-
-.work-card:hover {
-  transform:translateY(-4px);
-  box-shadow:0 12px 28px rgba(23,33,29,.11);
-}
-
-.thumb-link {
-  display:block;
-  position:relative;
-  aspect-ratio:16/9;
-  background:#dce7df;
-  overflow:hidden;
-}
-
-.thumb {
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  background:#dce7df;
-  transition:transform .25s ease;
-}
-
-.work-card:hover .thumb {
-  transform:scale(1.04);
-}
-
-.thumb-link::after {
-  content:"▶";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:rgba(0,0,0,.72);
-  color:#fff;
-  font-size:1.25rem;
-  padding-left:3px;
-  box-shadow:0 2px 12px rgba(0,0,0,.25);
-  pointer-events:none;
-}
-
-.thumb-placeholder {
-  height:100%;
-  display:grid;
-  place-items:center;
-  color:var(--green);
-  font-weight:800;
-  font-size:1.1rem;
-  background:linear-gradient(135deg,#dcefe2,#eef6f0);
-}
-
-.work-info { padding:18px; }
-
-.work-info h3 {
-  margin:0 0 7px;
-  font-size:1.08rem;
-}
-
-.work-info p {
-  margin:0 0 14px;
-  color:var(--muted);
-  font-size:.94rem;
-}
-
-.work-link {
-  font-weight:700;
-  text-decoration:none;
-}
-
-.work-link:hover { text-decoration:underline; }
-
-/* Green contact box */
-.contact-box {
-  background:var(--green);
-  color:#fff;
-  border-radius:20px;
-  padding:34px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  flex-wrap:wrap;
-}
-
-.contact-box h2 {
-  margin-bottom:8px;
-  color:#fff;
-}
-
-.contact-box p {
-  margin:0;
-  color:#e3f1e8;
-}
-
-.contact-links {
-  display:grid;
-  gap:8px;
-}
-
-.contact-box a {
-  color:#fff;
-  overflow-wrap:anywhere;
-}
-
-.social-grid {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  width:100%;
-  margin-top:8px;
-}
-
-.social-grid a {
-  display:inline-block;
-  border:1px solid rgba(255,255,255,.65);
-  background:rgba(255,255,255,.10);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-}
-
-.social-grid a:hover {
-  border-color:#fff;
-  background:rgba(255,255,255,.22);
-}
-
-footer {
-  padding:25px 0;
-  text-align:center;
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-@media (max-width:760px) {
-  nav {
-    padding:14px 0;
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .navlinks { gap:12px; }
-
-  .hero-grid { grid-template-columns:1fr; }
-
-  .portrait {
-    width:190px;
-    grid-row:1;
-  }
-
-  .cards,.work-grid { grid-template-columns:1fr; }
-
-  section { padding:48px 0; }
-
-  .contact-box { padding:25px; }
-}
-
-@media (min-width:520px) and (max-width:900px) {
-  .work-grid,.cards {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -727,7 +673,7 @@ footer {
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="#creative-work">Creative Work</a>
+      <a href="#work">Creative Work</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -735,366 +681,406 @@ footer {
 
 <main>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
+  <!-- HERO -->
 
-    <div>
-      <div class="eyebrow">Professional Portfolio</div>
-
-      <h1>Hello, I'm<br>Hamzah.</h1>
-
-      <p class="lead">
-        A hospitality professional with experience in guest services,
-        video editing and graphic design. I enjoy helping people,
-        solving problems and creating clear, engaging visual content.
-      </p>
-
-      <div class="buttons">
-        <a class="btn primary" href="#experience">View my experience</a>
-        <a class="btn secondary" href="#contact">Contact me</a>
-        <a class="btn secondary" href="#creative-work">View creative work</a>
-      </div>
-    </div>
-
-    <div class="portrait" aria-label="Profile photo placeholder">
-      <span>H</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <h2>About me</h2>
-
-    <p class="section-intro">
-      I bring together customer service, organisation and creative skills.
-      My experience includes supporting guests in a hostel environment
-      and working on video and graphic design projects.
-    </p>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Hospitality</h3>
-        <p>Guest support, check-in and check-out, reservations and responding to enquiries.</p>
-      </article>
-
-      <article class="card">
-        <h3>Creative work</h3>
-        <p>Video editing and graphic design for digital content and media projects.</p>
-      </article>
-
-      <article class="card">
-        <h3>Organisation</h3>
-        <p>Administrative support, record keeping, communication and day-to-day coordination.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="soft" id="skills">
-  <div class="wrap">
-    <h2>Skills</h2>
-
-    <p class="section-intro">
-      A selection of skills I have developed through work and study.
-    </p>
-
-    <div class="taglist">
-      <span class="tag">Guest relations</span>
-      <span class="tag">Reception</span>
-      <span class="tag">Reservations</span>
-      <span class="tag">Customer service</span>
-      <span class="tag">Video editing</span>
-      <span class="tag">Graphic design</span>
-      <span class="tag">Communication</span>
-      <span class="tag">Teamwork</span>
-      <span class="tag">Administration</span>
-      <span class="tag">Problem solving</span>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <h2>Work experience</h2>
-
-    <div class="timeline">
-      <article class="job">
-        <div class="date">2025–Present</div>
-        <h3>Receptionist — A&amp;O Hostel, Stuttgart</h3>
-        <p>Supporting guest check-in and check-out, handling reservations and enquiries, and helping guests with their needs during their stay.</p>
-      </article>
-
-      <article class="job">
-        <div class="date">2019–2022</div>
-        <h3>Video Editor &amp; Graphic Designer — Strawberry Sports</h3>
-        <p>Edited video content and prepared graphic materials for sports-related media.</p>
-      </article>
-
-      <article class="job">
-        <div class="date">2018–2019</div>
-        <h3>Video Editor — DTH News Channel</h3>
-        <p>Assisted with video editing and preparation of news media content.</p>
-      </article>
-
-      <article class="job">
-        <div class="date">2017</div>
-        <h3>Class Attendant / Accountant — KIPS Academy</h3>
-        <p>Provided classroom and administrative support, including basic accounting tasks.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="soft" id="education">
-  <div class="wrap">
-    <h2>Education &amp; languages</h2>
-
-    <div class="cards">
-      <article class="card">
-        <h3>University of Tübingen</h3>
-        <p>American Studies · 2025–Present</p>
-      </article>
-
-      <article class="card">
-        <h3>Allama Iqbal Open University</h3>
-        <p>Bachelor of Commerce · 2019–2021</p>
-      </article>
-
-      <article class="card">
-        <h3>Islamabad Model College H-8/4</h3>
-        <p>Intermediate · 2014–2016</p>
-      </article>
-    </div>
-
-    <h3 style="margin-top:30px">Languages</h3>
-
-    <div class="taglist">
-      <span class="tag">Urdu — C2</span>
-      <span class="tag">English — C1</span>
-      <span class="tag">German — A2.1</span>
-    </div>
-  </div>
-</section>
-
-<!-- CREATIVE WORK -->
-<section id="creative-work">
-  <div class="wrap">
-    <h2>My Creative Work</h2>
-
-    <p class="section-intro">
-      Click any thumbnail to watch a video or open a creative project.
-    </p>
-
-    <div class="work-grid">
-
-      <!-- VIDEO 1 -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.youtube.com/watch?v=VFIUJYZOawQ"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Watch video project 1">
-
-          <img class="thumb"
-               src="https://img.youtube.com/vi/VFIUJYZOawQ/hqdefault.jpg"
-               alt="Video editing project 1 thumbnail"
-               loading="lazy">
-        </a>
-
-        <div class="work-info">
-          <h3>Video Editing Project 1</h3>
-          <p>A showcase of my video editing work.</p>
-
-          <a class="work-link"
-             href="https://www.youtube.com/watch?v=VFIUJYZOawQ"
-             target="_blank" rel="noopener noreferrer">
-            Watch video ↗
-          </a>
-        </div>
-      </article>
-
-      <!-- VIDEO 2 -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.youtube.com/shorts/nivzMWWXlys"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Watch short video project">
-
-          <img class="thumb"
-               src="https://img.youtube.com/vi/nivzMWWXlys/hqdefault.jpg"
-               alt="Short-form video thumbnail"
-               loading="lazy">
-        </a>
-
-        <div class="work-info">
-          <h3>Short-form Video</h3>
-          <p>A short-form video editing project.</p>
-
-          <a class="work-link"
-             href="https://www.youtube.com/shorts/nivzMWWXlys"
-             target="_blank" rel="noopener noreferrer">
-            Watch short ↗
-          </a>
-        </div>
-      </article>
-
-      <!-- VIDEO 3 -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.youtube.com/watch?v=Z_3Tg4aLZvQ"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Watch video project 3">
-
-          <img class="thumb"
-               src="https://img.youtube.com/vi/Z_3Tg4aLZvQ/hqdefault.jpg"
-               alt="Video editing project 3 thumbnail"
-               loading="lazy">
-        </a>
-
-        <div class="work-info">
-          <h3>Video Editing Project 3</h3>
-          <p>Another example of my creative work.</p>
-
-          <a class="work-link"
-             href="https://www.youtube.com/watch?v=Z_3Tg4aLZvQ"
-             target="_blank" rel="noopener noreferrer">
-            Watch video ↗
-          </a>
-        </div>
-      </article>
-
-      <!-- YOUTUBE CHANNEL -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.youtube.com/@hamzahedits3773"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Visit Hamzah Edits YouTube channel">
-
-          <div class="thumb-placeholder">▶ Hamzah Edits</div>
-        </a>
-
-        <div class="work-info">
-          <h3>Hamzah Edits</h3>
-          <p>Visit my YouTube channel.</p>
-
-          <a class="work-link"
-             href="https://www.youtube.com/@hamzahedits3773"
-             target="_blank" rel="noopener noreferrer">
-            Visit channel ↗
-          </a>
-        </div>
-      </article>
-
-      <!-- ROCK NATION -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.youtube.com/@RockNationnhb/videos"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Visit Rock Nation videos">
-
-          <div class="thumb-placeholder">▶ Rock Nation</div>
-        </a>
-
-        <div class="work-info">
-          <h3>Rock Nation</h3>
-          <p>Explore videos from Rock Nation.</p>
-
-          <a class="work-link"
-             href="https://www.youtube.com/@RockNationnhb/videos"
-             target="_blank" rel="noopener noreferrer">
-            View videos ↗
-          </a>
-        </div>
-      </article>
-
-      <!-- INSTAGRAM PROJECT -->
-      <article class="work-card">
-        <a class="thumb-link"
-           href="https://www.instagram.com/p/CUC-SlsjWqb/"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Open Instagram creative project">
-
-          <div class="thumb-placeholder">Instagram Project ↗</div>
-        </a>
-
-        <div class="work-info">
-          <h3>Instagram Project</h3>
-          <p>View my Instagram creative work.</p>
-
-          <a class="work-link"
-             href="https://www.instagram.com/p/CUC-SlsjWqb/"
-             target="_blank" rel="noopener noreferrer">
-            View post ↗
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT AND SOCIAL MEDIA -->
-<section class="soft" id="contact">
-  <div class="wrap">
-
-    <div class="contact-box">
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
 
       <div>
-        <h2>Let's connect</h2>
+        <p class="eyebrow">Professional Portfolio</p>
+
+        <h1>Hello, I'm<br><span>Hamzah.</span></h1>
+
+        <p class="lead">
+          A hospitality professional and creative video editor with an
+          interest in digital content, graphic design and creative projects.
+          I enjoy helping people, solving problems and bringing ideas to life.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#work">Explore My Work ↗</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me ↗</a>
+        </div>
+      </div>
+
+      <div class="portrait" aria-label="Hamzah profile placeholder">
+        H.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="wrap">
+
+      <p class="section-label">A Little About Me</p>
+      <h2>About Me</h2>
+
+      <p class="about-text">
+        I am Hamzah, a hospitality professional with experience in customer
+        service and an interest in video editing and digital creativity.
+        I value teamwork, communication, reliability and continuous learning.
+        Through my creative projects, I enjoy exploring new ideas and
+        developing content for online audiences.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section class="skills-section" id="skills">
+    <div class="wrap">
+
+      <p class="section-label">What I Bring</p>
+      <h2>Skills & Expertise</h2>
+
+      <p class="section-intro">
+        Skills developed through professional experience and creative work.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Customer Service</span>
+        <span class="tag">Hospitality</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Video Editing</span>
+        <span class="tag">Digital Content</span>
+        <span class="tag">Creative Thinking</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Time Management</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+    <div class="wrap">
+
+      <p class="section-label">Professional Background</p>
+      <h2>Work Experience</h2>
+
+      <div class="job">
+        <h3>Hospitality Team Member — McDonald's</h3>
+        <p class="meta">Customer Service · Food Service · Teamwork</p>
+
         <p>
-          For professional opportunities or collaborations,
-          feel free to get in touch.
+          Experience working in a fast-paced hospitality environment,
+          supporting daily operations, serving customers, maintaining
+          cleanliness and collaborating with team members.
         </p>
       </div>
 
-      <div class="contact-links">
-        <a href="mailto:Hamza660ti@gmail.com">
-          Hamza660ti@gmail.com
-        </a>
-      </div>
+      <div class="job">
+        <h3>Video Editing & Creative Projects</h3>
+        <p class="meta">Digital Content · Video Editing</p>
 
-      <div class="social-grid">
-        <a href="https://www.upwork.com/freelancers/~0174ec9e7c1ac50fd0"
-           target="_blank" rel="noopener noreferrer">
-          Upwork ↗
-        </a>
-
-        <a href="https://www.instagram.com/hamzah_1572/"
-           target="_blank" rel="noopener noreferrer">
-          Instagram ↗
-        </a>
-
-        <a href="https://www.facebook.com/profile.php?id=100010592532276"
-           target="_blank" rel="noopener noreferrer">
-          Facebook ↗
-        </a>
-
-        <a href="https://www.linkedin.com/in/muhammad-hamzah-8581a5216/"
-           target="_blank" rel="noopener noreferrer">
-          LinkedIn ↗
-        </a>
+        <p>
+          Creative work involving online video content and digital media.
+          Selected examples and channels are available in the portfolio below.
+        </p>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section class="education-section" id="education">
+    <div class="wrap">
+
+      <p class="section-label">My Background</p>
+      <h2>Education & Languages</h2>
+
+      <div class="cards">
+
+        <article class="card">
+          <h3>University of Tübingen</h3>
+          <p>
+            American Studies
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Allama Iqbal Open University</h3>
+          <p>
+            Bachelor of Commerce
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Languages</h3>
+          <p>
+            Urdu · English · German
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CREATIVE WORK -->
+
+  <section class="creative-section" id="work">
+    <div class="wrap">
+
+      <p class="section-label">Selected Projects</p>
+      <h2>My Creative Work</h2>
+
+      <p class="section-intro">
+        Explore my video editing projects and creative collaborations.
+        Click any thumbnail to open the original video or project.
+      </p>
+
+      <div class="work-grid">
+
+        <!-- VIDEO 1 -->
+
+        <article class="work-card">
+          <a class="thumb-link"
+             href="https://www.youtube.com/watch?v=VFIUJYZOawQ"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Watch video editing project one">
+
+            <img class="thumb"
+                 src="https://img.youtube.com/vi/VFIUJYZOawQ/hqdefault.jpg"
+                 alt="Video editing project one thumbnail"
+                 loading="lazy">
+
+            <span class="play">▶</span>
+          </a>
+
+          <div class="work-content">
+            <h3>Video Editing Project 01</h3>
+            <p>A showcase of my video editing work.</p>
+
+            <a class="work-link"
+               href="https://www.youtube.com/watch?v=VFIUJYZOawQ"
+               target="_blank"
+               rel="noopener noreferrer">
+              Watch Video ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- VIDEO 2 -->
+
+        <article class="work-card">
+          <a class="thumb-link"
+             href="https://www.youtube.com/shorts/nivzMWWXlys"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Watch short video project">
+
+            <img class="thumb"
+                 src="https://img.youtube.com/vi/nivzMWWXlys/hqdefault.jpg"
+                 alt="Short-form video project thumbnail"
+                 loading="lazy">
+
+            <span class="play">▶</span>
+          </a>
+
+          <div class="work-content">
+            <h3>Short-Form Video</h3>
+            <p>A short-form video editing project.</p>
+
+            <a class="work-link"
+               href="https://www.youtube.com/shorts/nivzMWWXlys"
+               target="_blank"
+               rel="noopener noreferrer">
+              Watch Short ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- VIDEO 3 -->
+
+        <article class="work-card">
+          <a class="thumb-link"
+             href="https://www.youtube.com/watch?v=Z_3Tg4aLZvQ"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Watch video editing project three">
+
+            <img class="thumb"
+                 src="https://img.youtube.com/vi/Z_3Tg4aLZvQ/hqdefault.jpg"
+                 alt="Video editing project three thumbnail"
+                 loading="lazy">
+
+            <span class="play">▶</span>
+          </a>
+
+          <div class="work-content">
+            <h3>Video Editing Project 03</h3>
+            <p>Another example of my creative video work.</p>
+
+            <a class="work-link"
+               href="https://www.youtube.com/watch?v=Z_3Tg4aLZvQ"
+               target="_blank"
+               rel="noopener noreferrer">
+              Watch Video ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- INSTAGRAM PROJECT -->
+
+        <article class="work-card">
+          <a class="thumb-link"
+             href="https://www.instagram.com/p/CUC-SlsjWqb/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View Instagram creative project">
+
+            <img class="thumb"
+                 src="https://placehold.co/640x360/176b4d/ffffff?text=Instagram+Project"
+                 alt="Instagram creative project preview"
+                 loading="lazy">
+
+            <span class="play">↗</span>
+          </a>
+
+          <div class="work-content">
+            <h3>Instagram Creative Project</h3>
+            <p>View a selected project shared on Instagram.</p>
+
+            <a class="work-link"
+               href="https://www.instagram.com/p/CUC-SlsjWqb/"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Project ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- YOUTUBE CHANNELS -->
+
+      <div style="margin-top:55px;">
+        <p class="section-label">More Content</p>
+        <h2>YouTube Channels</h2>
+
+        <p class="section-intro">
+          Explore more content and videos through my associated channels.
+        </p>
+
+        <div class="channel-links">
+
+          <a class="channel-btn"
+             href="https://www.youtube.com/@hamzahedits3773"
+             target="_blank"
+             rel="noopener noreferrer">
+            Hamzah Edits ↗
+          </a>
+
+          <a class="channel-btn"
+             href="https://www.youtube.com/@RockNationnhb/videos"
+             target="_blank"
+             rel="noopener noreferrer">
+            Rock Nation Videos ↗
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+
+      <div class="contact-box">
+
+        <p class="section-label">Get In Touch</p>
+
+        <h2>Let's Connect.</h2>
+
+        <p class="section-intro">
+          For professional opportunities, collaborations or creative projects,
+          feel free to contact me or connect with me on social media.
+        </p>
+
+        <!-- EMAIL -->
+
+        <a class="contact-email"
+           href="mailto:Hamza660ti@gmail.com">
+          Hamza660ti@gmail.com
+        </a>
+
+        <!-- SOCIAL LINKS -->
+
+        <div class="social-grid">
+
+          <a href="https://www.upwork.com/freelancers/~0174ec9e7c1ac50fd0"
+             target="_blank"
+             rel="noopener noreferrer">
+            Upwork ↗
+          </a>
+
+          <a href="https://www.instagram.com/hamzah_1572/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Instagram ↗
+          </a>
+
+          <a href="https://www.facebook.com/profile.php?id=100010592532276"
+             target="_blank"
+             rel="noopener noreferrer">
+            Facebook ↗
+          </a>
+
+          <a href="https://www.linkedin.com/in/muhammad-hamzah-8581a5216/"
+             target="_blank"
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+
+          <a href="https://www.youtube.com/@hamzahedits3773"
+             target="_blank"
+             rel="noopener noreferrer">
+            YouTube ↗
+          </a>
+
+          <a href="https://www.instagram.com/p/CUC-SlsjWqb/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Instagram Project ↗
+          </a>
+
+        </div>
+
+        <!-- PHONE -->
+
+        <p class="phone-note">
+          Phone:
+          <a href="tel:+4915754446884">+49 1575 4446884</a>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
 <footer>
   <div class="wrap">
-    © <span id="year"></span> Hamzah. Professional Portfolio.
+    © <span id="year"></span> Hamzah. All rights reserved.
   </div>
 </footer>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
 
 </body>
